@@ -1,0 +1,6 @@
+27-Jan-26 19:52:15 : 10592 : root : DEBUG 	 This is a debug msg
+27-Jan-26 19:52:15 : 10592 : root : INFO 	 This is the phase-5 of learning python
+27-Jan-26 19:52:15 : 10592 : root : WARNING 	 This is a WARNING MSG
+27-Jan-26 19:52:15 : 10592 : root : ERROR 	 There is some error
+27-Jan-26 19:52:15 : 10592 : root : CRITICAL 	 This is critical section
+
