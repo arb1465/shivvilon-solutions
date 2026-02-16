@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %} My Portfolio {% endblock %}
+
+{% block content %}
+
+<section class="min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-black text-white flex items-center justify-center px-6">
+    <div class="max-w-4xl text-center space-y-6">
+
+        <!-- Main Heading -->
+        <h1 class="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            Welcome to My Personal Portfolio
+        </h1>
+
+        <!-- Subtitle -->
+        <h2 class="text-xl md:text-2xl font-semibold text-gray-300">
+            Hey! I'm <span class="text-blue-400 font-bold">Aasutosh Baraiya</span>
+        </h2>
+
+        <!-- Description -->
+        <p class="text-gray-400 text-lg leading-relaxed">
+            A passionate programmer and final year Computer Science student at SVNIT Surat.
+            I began my coding journey driven by a love for mathematics and problem solving,
+            which naturally led me into the world of Programming.
+        </p>
+
+        <p class="text-gray-400 text-lg leading-relaxed">
+            I enjoy building projects that blend logic with design, from C++-powered algorithms
+            to responsive web applications. I was part of a team of four that built 
+            <span class="text-purple-400 font-semibold">'KOE - The Kafe'</span> for a college-wide hackathon.
+        </p>
+
+        <p class="text-gray-400 text-lg leading-relaxed">
+            Beyond coding, I deeply value collaboration and mentorship, supporting peers in tech clubs
+            and team projects. I'm drawn toward clean design and intuitive user experience,
+            believing thoughtful interfaces amplify impact.
+        </p>
+
+        <p class="text-gray-400 text-lg leading-relaxed italic">
+            With curiosity as my compass, I'm always learning.
+        </p>
+
+        <!-- Button Section -->
+        <div class="pt-6">
+            <a href="https://portfolio-arb.vercel.app/" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 transition duration-300 rounded-xl text-lg font-semibold shadow-lg">
+                View My Portfolio
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
