@@ -1,7 +1,32 @@
 {% extends "layout.html" %}
 
 {% block title %} Home Page of myApp {% endblock %}
+
 {% block content %}
-    <h1> Welcome to the Home Page of myApp (Created App) </h1>
-    <p> This is the content of the home page of myApp. </p>
+
+<div class="min-h-screen bg-gray-700 flex items-center justify-center px-6">
+
+    <div class="bg-white shadow-2xl rounded-2xl p-10 text-center max-w-xl w-full">
+
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">
+            Welcome to myApp
+        </h1>
+
+        <p class="text-gray-600 mb-8 text-lg">
+            This is the home page of <span class="font-semibold">myApp</span>.
+            Click below to view all Nalles.
+        </p>
+
+        <a href="{% url 'show_all' %}">
+            <button class="bg-gray-700 hover:bg-gray-800 text-white
+                           px-6 py-3 rounded-lg font-semibold
+                           shadow-md transition duration-300">
+                View All Nalles
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
 {% endblock %}

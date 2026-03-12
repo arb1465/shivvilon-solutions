@@ -4,9 +4,14 @@
 
 {% block content %}
 
-<!-- Header -->
-<div class="bg-gray-700 text-white text-center p-6 mb-12 shadow-lg">
+<div class="bg-gray-700 text-white text-center p-6 mb-8 shadow-lg">
     <h1 class="text-4xl font-bold">Nalles</h1>
+</div>
+
+<div class="flex justify-center mb-6">
+    <p class="text-gray-100 mt-2 text-2xl">
+        Nalles - my close friend circle in the first year of college.
+    </p>
 </div>
 
 <div class="grid grid-cols-3 gap-4 m-4">
@@ -24,10 +29,6 @@
             {{ nalla.name }}
         </h3>
 
-        <p class="text-white mt-2">
-            Department: {{ nalla.dept }}
-        </p>
-
         <a href="{% url 'nallas_detail' nalla.id %}">
             <button
                 type="button"
@@ -38,6 +39,16 @@
 
     </div>
     {% endfor %}
+
+    <div class="col-span-3 text-center mt-8">
+        <a href="{% url 'all_myApp' %}">
+            <button
+                type="button"
+                class="w-full h-12 text-xl bg-white text-gray-800 font-bold py-2 px-4 rounded mt-4 hover:bg-gray-300 transition duration-300">
+                Go Back
+            </button>
+        </a>
+    </div>
 
 </div>
 
