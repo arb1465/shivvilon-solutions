@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CSS practice</title>
+    <style>
+
+        body{
+            background-image: url("https://i.pinimg.com/1200x/eb/1b/48/eb1b48da078e01de2acd48e67c3189fa.jpg");
+            background-size: contain;
+            
+            /* background-color: white;
+            background-image: radial-gradient( blue, darkblue, black); */
+        }
+
+        * {
+            font-family: Arial, sans-serif;
+            /* margin: 5px;
+            padding: 2px; */
+            color: white;
+        }
+
+        #about{
+            letter-spacing: 0.3px;
+            line-height: 22px;
+        }
+
+        #name{margin-bottom: 0;}
+
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav{
+            width: 300px;
+            display: flex;
+            justify-content: end;
+            gap: 20px;
+
+            position: absolute;
+            right: 30px;
+        }
+
+        table{
+            /* border-collapse: collapse; */
+            border-color: rgb(195, 209, 246);
+            width: 100%;
+            padding: 4px;
+        }
+
+        tr, th, td{
+            text-align: center;
+            padding: 5px;
+        }
+
+        a{
+            color: rgb(195, 209, 246);
+            text-decoration: underline;
+            transition-property: color font-size;
+            transition-duration: 0.3s;
+        }
+
+        li{
+            margin: 5px 0;
+        }
+
+        a:hover{
+            color: rgb(223, 166, 234);
+            font-size: 107%;
+        }
+
+        h1::after {
+            content: "🔥";
+        }
+
+        ::selection{
+            background-color: rgb(231, 236, 236);
+            color: rgb(61, 60, 60);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1 id="name">Aasutosh Baraiya</h1>
+            <p style ="margin-top: 5px;">Computer Science Student | MERN Stack Learner</p>
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Projects</a>
+            <a href="#">Skills</a>
+            <a href="#">Contact</a>
+            <a href="https://portfolio-arb.vercel.app/">Portfolio</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <section>
+        <h2>About Me</h2>
+        <p id="about">
+            Hello! My name is <strong>Aasutosh Baraiya</strong>.
+            I am passionate about <em>web development</em> and problem solving.
+        </p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>My Skills</h2>
+        <ul id="skills">
+            <li>HTML, CSS, JS</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>MongoDB</li>
+            <li>Git & GitHub</li>
+            <li>Figma, Canva</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Projects</h2>
+
+        <article>
+            <h3>KOE - The Kafe</h3>
+            <ul>
+                <li>KOE - The Kafe is a web application that allows users to explore cafes and food places.</li>
+                Visit: <a href="https://koe-the-cafe-winter-wiz.onrender.com/">Click here</a>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Mehendi Art Gallery</h3>
+            <ul>
+                <li>A gallery website showcasing beautiful mehendi designs.</li>
+                Visit: <a href="https://preyasi-mehndi.vercel.app/">Click here</a>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Movie Library</h3>
+            <ul>
+                <li>A library website for browsing and managing a collection of movies.</li>
+                Visit: <a href="https://movie-library-arb.vercel.app/">Click here</a>
+            </ul>
+        </article>
+
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Profile</h2>
+
+        <img src="me.jpg" alt="profile image" height="230" width="200" style="border-radius: 6px; border: 2px rgb(98, 184, 245) solid; box-shadow: 5px 5px 6px 0px rgba(176, 220, 248, 0.75);">
+
+        <p>Email: <a href="mailto:aasutoshbaraiya146@gmail.com"> aasutoshbaraiya146@gmail.com</a></p>
+
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Education</h2>
+
+        <table border="1" id="edu">
+            <tr>
+                <th>No</th>
+                <th>Degree</th>
+                <th>Institute</th>
+                <th>%/CGPA</th>
+                <th>Year</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>B.Tech CSE</td>
+                <td>SVNIT Surat</td>
+                <td>7.54</td>
+                <td>2022 - 2026</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>HSC</td>
+                <td>Innovative School</td>
+                <td>79.53%</td>
+                <td>2022</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>SSC</td>
+                <td>Murlidhar School</td>
+                <td>90.33%</td>
+                <td>2020</td>
+            </tr>
+        </table>
+
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Contact Me</h2>
+
+        <form>
+
+            <label>Name:</label>
+            <input type="text" placeholder="Enter your name">
+
+            <br><br>
+
+            <label>Email:</label>
+            <input type="email" placeholder="Enter your email">
+
+            <br><br>
+
+            <label>Message:</label><br>
+            <textarea rows="4" cols="30"></textarea>
+
+            <br><br>
+
+            <button type="submit">Send Message</button>
+
+        </form>
+
+    </section>
+
+    <hr>
+
+    <footer>
+        <p>© 2026 Aasutosh Baraiya</p>
+    </footer>
+
+</body>
+
+</html>
