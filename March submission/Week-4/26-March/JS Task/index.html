@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <div class="ask">
+            <h1>Tic Tac Toe</h1> 
+            <h2>1 Player or 2 Player?</h2>
+            <div class="select-opt">
+                <input type="radio" name="mode" id="p-1" value="1">
+                <label for="p-1">1 Player</label>
+                <input type="radio" name="mode" id="p-2" value="2">
+                <label for="p-2">2 Player</label>
+            </div>
+
+            <div class="take-names">
+                <input type="text" id="inp-1" placeholder="Enter Player 1 Name">
+                <input type="text" id="inp-2" placeholder="Enter Player 2 Name">
+                <button class="btn" id="into-game" onclick="redirect()">Enter into the game</button>
+            </div>
+        </div>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

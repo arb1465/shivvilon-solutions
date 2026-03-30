@@ -22,6 +22,7 @@ body{
 
 .todo-container h2{
     text-align: center;
+    font-size: 30px  ;
     margin-bottom: 20px;
 }
 
@@ -32,7 +33,7 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .todo-input input{
@@ -67,13 +68,20 @@ body{
     padding: 10px;
     margin-bottom: 10px;
 
-    background: #f9fafb;
+    background: #eff0f1;
     border-radius: 6px;
 }
 
-.todo-item span{
+.todo-item .left-div{
     display: flex;
-    align-self: start;
+    justify-content: start;
+    gap: 20px;
+}
+
+.todo-item .actions{
+    display: flex;
+    justify-content: center;
+    gap: 7px;
 }
 
 .actions button{
@@ -92,4 +100,19 @@ body{
 .delete{
     background: #ef4444;
     color: white;
+}
+
+@media (max-width: 700px) {
+    
+    .todo-container{
+        width: 350px;
+    }
+}
+
+@media (max-width: 350px){
+    .todo-item{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
 }

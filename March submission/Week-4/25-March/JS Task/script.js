@@ -19,23 +19,44 @@ function createElementForToDo(val) {
     let ele = document.createElement("li");
     ele.setAttribute("class", "todo-item");
 
-    let sp = document.createElement("span");
-    sp.innerText = val;
-    ele.append(sp);
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
 
-    let actionDiv = document.createElement("div");
-    actionDiv.setAttribute("class", "actions");
-    ele.append(actionDiv);
+    checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+            sp.style.textDecoration = "line-through";
+            sp.style.color = "gray"
+        }
+        else {
+            sp.style.textDecoration = "none";
+            sp.style.color = "black"
+        }
+    });
+
+    let sp = document.createElement("span");    
+    sp.innerText = val;
+
+    let leftDiv = document.createElement("div");
+    leftDiv.setAttribute("class", "left-div")
+
+    leftDiv.append(checkbox);
+    leftDiv.append(sp);
+    ele.append(leftDiv);
 
     let editBtn = document.createElement("button");
     editBtn.setAttribute("class", "edit");
     editBtn.innerText = "Edit";
-    actionDiv.append(editBtn);
-
+    
     let deleteBtn = document.createElement("button");
     deleteBtn.setAttribute("class", "delete");
     deleteBtn.innerText = "Delete";
+    
+    let actionDiv = document.createElement("div");
+    actionDiv.setAttribute("class", "actions");
+
+    actionDiv.append(editBtn);
     actionDiv.append(deleteBtn);
+    ele.append(actionDiv);
 
     // console.log(ele);
     return ele;
@@ -43,9 +64,9 @@ function createElementForToDo(val) {
 
 let isEditing = false;
 
-btn.addEventListener("click", (e) => {
+btn.addEventListener("click", () => {
     if (isEditing) return;
-    
+
     let inp = document.querySelector("input");
     let val = inp.value;
     console.log("To Do :", val);
@@ -82,19 +103,17 @@ ulList.addEventListener("click", (e) => {
 
         todoItem.remove();
         console.log("To Do item is deleted");
-    } else {
-        textEle = todoItem.firstElementChild;
-        
+    } else if (att == "edit") {
+        textEle = todoItem.children[0].children[1];
+
         parEle = document.querySelector(".todo-input")
         parEle.children[0].value = textEle.innerText;
-
-        textEle = todoItem.firstElementChild;
 
         let saveBtn = parEle.children[1];
         isEditing = true
         saveBtn.innerText = 'Submit'
         saveBtn.style.backgroundColor = '#2172b9'
-        
+
         saveBtn.onclick = () => {
             let val = parEle.children[0].value;
 
@@ -102,28 +121,28 @@ ulList.addEventListener("click", (e) => {
                 alert("Empty to do is not possible")
                 return;
             }
-            
+
             let oldText = textEle.innerText;
             let newText = val;
 
             let todos = getTodos();
             let index = todos.indexOf(oldText);
-            
+
             if (index !== -1) {
                 todos[index] = newText;
             }
-            
+
             saveTodos(todos);
-            
+
             textEle.innerText = newText;
             console.log("Todo is edited");
-            
+
             isEditing = false;
             saveBtn.innerText = "Add";
             parEle.children[0].value = "";
             saveBtn.style.backgroundColor = '#40f88a'
         };
-        
+
     }
 });
 
