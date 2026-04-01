@@ -22,16 +22,6 @@ const nalles_details = [
     package: "32 LPA",
   },
   {
-    admission_no : 'U22CS034',
-    name: "Akshat Sahu",
-    state: "Uttar Pradesh",
-    dept: "Computer Science & Engineering",
-    insta_id: "https://www.instagram.com/_akshu.25_/",
-    isPlaced: true,
-    company: "Publicis Sapient",
-    package: "20 LPA",
-  },
-  {
     admission_no : 'U22EE046',
     name: "Parth Tita",
     state: "Gujarat",
@@ -64,6 +54,16 @@ const nalles_details = [
     isPlaced: true,
     company: "Atlas Copco",
     package: "14 LPA",
+  },
+  {
+    admission_no : 'U22CS034',
+    name: "Akshat Sahu",
+    state: "Uttar Pradesh",
+    dept: "Computer Science & Engineering",
+    insta_id: "https://www.instagram.com/_akshu.25_/",
+    isPlaced: true,
+    company: "Publicis Sapient",
+    package: "20 LPA",
   },
   {
     admission_no : 'U22EE099',
