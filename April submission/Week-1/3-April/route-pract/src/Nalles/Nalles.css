@@ -1,0 +1,202 @@
+
+/* Container */
+.container {
+  padding: 30px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 25px;
+  color: #222;
+}
+
+/* Grid Layout */
+.lists {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover Effect */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Name */
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Admission ID */
+.id {
+  font-size: 13px;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+/* Info */
+.info {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #444;
+}
+
+/* Instagram Link */
+.insta {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #198cda;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.insta:hover {
+  text-decoration: underline;
+}
+
+/* Placement Badge */
+.placed {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #e6f7ee;
+  color: #0a7a3d;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.not-placed {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #ffe6e6;
+  color: #a10000;
+  font-size: 13px;
+}
+
+
+
+
+/* Wrapper */
+.get-data {
+  max-width: 500px;
+  margin: 45px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Form layout */
+.get-data form {
+  margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Labels */
+.get-data label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs */
+.get-data input[type="text"] {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+/* Input focus */
+.get-data input[type="text"]:focus {
+  border-color: #198cda;
+  box-shadow: 0 0 0 2px rgba(25, 140, 218, 0.15);
+}
+
+/* Radio */
+.get-data input[type="radio"] {
+  margin-left: 8px;
+  transform: scale(1.1);
+}
+
+/* Placement section */
+.place {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f4f9ff;
+  border: 1px solid #d6eaff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Button */
+.get-data button {
+  margin-top: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #198cda;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Button hover */
+.get-data button:hover {
+  background: #0f6fb2;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.photo-name-info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-info{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+}
+
+.get-data select { 
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+}
+
+.get-data select:focus {
+  border-color: #198cda;
+  box-shadow: 0 0 0 2px rgba(25, 140, 218, 0.15);
+}
