@@ -3,11 +3,13 @@ const ringColors = {
   blue: "focus:ring-blue-500",
   red: "focus:ring-red-500",
   green: "focus:ring-green-500",
-  gray: "focus:ring-gray-500"
+  gray: "focus:ring-gray-500",
+  white: "focus:ring-white-500"
 };
 
-const Input = ({inpType, inpName, inpValue, inpPlaceholder, rColor, isReq, onChange}) => {
+const Input = ({inpType, inpName, inpValue, inpPlaceholder, rColor, isReq, onChange, inpWidth = "w-full"}) => {
   const ringClass = ringColors[rColor] || ringColors.gray;
+  
 
   return (
     <input
@@ -17,7 +19,7 @@ const Input = ({inpType, inpName, inpValue, inpPlaceholder, rColor, isReq, onCha
       required={isReq}
       onChange={onChange}
       placeholder={inpPlaceholder}
-      className={`w-full border my-3 border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-1 ${ringClass}`}
+      className={`${inpWidth} border my-2 border-gray-300 p-2 px-3 rounded-lg focus:outline-none focus:ring-1 ${ringClass}`}
     />
   )
 }
