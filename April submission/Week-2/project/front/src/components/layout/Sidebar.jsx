@@ -3,23 +3,22 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const NavItem = ({ label, icon, path }) => {
   const location = useLocation();
-  const isActive = location.pathname === path;
 
   return (
     <Link to={path}>
       <div
         className={
-          `flex items-center gap-3 cursor-pointer hover:bg-blue-800 p-2 rounded-lg 
+          `flex items-center gap-3 cursor-pointer hover:bg-blue-400 p-2 rounded-lg 
           ${location.pathname === path
-            ? "bg-blue-800 font-semibold"
-            : "hover:bg-blue-300 "
+            ? "bg-blue-800 font-semibold text-white"
+            : "hover:bg-blue-300 hover:text-white"
           }
         `}
       >
         <div className="w-6 h-6 bg-blue-500 text-white flex items-center justify-center rounded">
           {icon}
         </div>
-        <span className={`${isActive ? "text-white" : " hover:text-white"}`}>{label}</span>
+        <span>{label}</span>
       </div>
     </Link>
   );
@@ -34,6 +33,8 @@ const Sidebar = () => {
       transform md:translate-x-0 -translate-x-full
       transition-transform duration-300
     ">
+
+      {/* X Close */}
       <div
         className="flex items-center gap-2 mb-2 md:hidden cursor-pointer"
       >
@@ -58,9 +59,10 @@ const Sidebar = () => {
 
         <hr className="border-t-1 border-gray-600" />
 
-        <div className="flex items-center gap-3 cursor-pointer hover:bg-blue-400 p-2 rounded-lg">
+        {/* Log out */}
+        <div className="flex items-center gap-3 cursor-pointer hover:bg-blue-400 p-2 rounded-lg" onClick={() => {navi("/")}}>
           <div className="w-6 h-6 bg-blue-800 text-white flex items-center justify-center rounded">L</div>
-          <span onClick={() => {navi("/")}}>Logout</span>
+          <span>Logout</span>
         </div>
 
       </div>

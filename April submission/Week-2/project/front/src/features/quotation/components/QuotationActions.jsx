@@ -10,7 +10,7 @@ const QuotationActions = () => {
       {/* Left Buttons */}
       <div className="flex gap-3">
         <Button btnName="Pending" btnColor="white" btnWidth="w-auto" txtCol="black" />
-        <Button btnName="Confirm" btnColor="green" btnWidth="w-auto" />
+        <Button btnName="Confirmed" btnColor="green" btnWidth="w-auto" />
       </div>
 
       {/* Right Button */}

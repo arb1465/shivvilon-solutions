@@ -4,37 +4,46 @@
 
 ### 📁 components/
 - 📁 layout/
+  - Header.jsx
+  - Sidebar.jsx
+  
 - 📁 ui/
   - Button.jsx
   - Input.jsx
 
 ---
 
+### 📁 contexts/
+
+-  quotationDataContext.js
+
+---
+
 ### 📁 features/
 
-#### 📁 dashboard/
-- DashboardArea.jsx
-- ProductCard.jsx
+- 📁 dashboard/
+  - DashboardArea.jsx
+  - ProductCard.jsx
 
-#### 📁 material/
-- MaterialArea.jsx
+- 📁 material/
+  - MaterialArea.jsx
 
-#### 📁 payment/
-- PaymentArea.jsx
+- 📁 payment/
+  - PaymentArea.jsx
 
-#### 📁 quotation/
+- 📁 quotation/
+  - QuotationArea.jsx
 
-##### 📁 components/
-- QuotationActions.jsx
-- QuotationCard.jsx
-- QuotationForm.jsx
-- QuotationStats.jsx
-- ShowQuotations.jsx
-- StatsCard.jsx
-- StatusBadge.jsx
-
-##### 📄
-- QuotationArea.jsx
+  - 📁 components/
+    - QuotationActions.jsx
+    - QuotationCard.jsx
+    - QuotationForm.jsx
+    - QuotationStats.jsx
+    - ShowQuotations.jsx
+    - StatsCard.jsx
+  
+  - 📁 services/
+    - FetchQuotationData.jsx
 
 ---
 
