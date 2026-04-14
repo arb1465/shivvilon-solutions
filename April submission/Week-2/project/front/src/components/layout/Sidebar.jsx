@@ -29,9 +29,9 @@ const Sidebar = () => {
   return (
     <div className="
       fixed md:static top-0 left-0
-      h-full w-56 bg-gray-100 p-4 flex flex-col gap-6
+      h-full w-56 bg-white p-4 flex flex-col gap-6
       transform md:translate-x-0 -translate-x-full
-      transition-transform duration-300
+      transition-transform duration-300 shadow-lg
     ">
 
       {/* X Close */}

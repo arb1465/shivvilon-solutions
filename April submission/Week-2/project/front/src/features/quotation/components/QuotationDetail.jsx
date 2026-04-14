@@ -5,12 +5,16 @@ import Button from "../../../components/ui/Button";
 import Input from "../../../components/ui/Input";
 import getCurrentDateTime from "../../../utils/getCurrentDateAndTime";
 import calculateAmount from "../../../utils/calculateQuotationAmount";
+import { useRef } from "react";
+import { handleDownloadPDF } from "../../../utils/handleDownloadPDF";
 
 const QuotationDetail = () => {
   const { quotations, setQuotations } = useContext(QuotationContext);
   const { id } = useParams();
   const [isEditing, setIsEditing] = useState(false)
   const navi = useNavigate();
+  const pdfRef = useRef();
+
   const quotation = quotations.find((q) => q.id == Number(id));
 
   const [editData, setEditData] = useState(quotation)
@@ -78,13 +82,15 @@ const QuotationDetail = () => {
     setIsEditing(false);
   };
 
+
   if (!quotation) return <div className="p-6">Quotation Not Found</div>;
 
   return (
-    <div className="border rounded-xl p-6 bg-white">
+    <>
 
       {/* Top Actions */}
-      <div className="flex justify-end gap-4 mt-[-20px] mb-4">
+      <div className="flex justify-end gap-4 mt-2 mb-6">
+        <Button btnName="BACK" btnColor="white" txtCol="black" btnWidth="w-auto px-6" onClick={() => navi("/quotations")} />
         {!isEditing ? (
           <Button
             btnName="Edit"
@@ -100,99 +106,139 @@ const QuotationDetail = () => {
             onClick={handleSave}
           />
         )}
-        <Button btnName="PRINT" btnColor="red" btnWidth="w-auto px-6" onClick={() => window.print()} />
-        <Button btnName="BACK" btnColor="white" txtCol="black" btnWidth="w-auto px-6" onClick={() => navi("/quotations")} />
+        <Button btnName="PRINT" btnColor="red" btnWidth="w-auto px-6" onClick={() => handleDownloadPDF({ pdfRef, data: editData })} />
       </div>
 
-      {/* Top Row */}
-      <div className="flex flex-col md:flex-row justify-between gap-4 mb-4">
+        <div className="rounded-xl w-[880px] p-5 bg-white" ref={pdfRef}>
 
-        {/* Client Name */}
-        <div className="flex items-center gap-3 flex-1">
-          <span className="text-lg font-medium">Client Name:</span>
-          <Input inpName={"cliName"} readOnly={!isEditing} onChange={handleChange} inpValue={editData.cliName} inpWidth="w-[80%]" />
-        </div>
+          {/* Top Row */}
+          <div className="flex items-center justify-between gap-1 mb-2 mt-[-10px]">
 
-        {/* Date */}
-        <div className="flex items-center gap-3">
-          <Input readOnly={!isEditing} onChange={handleChange} inpValue={editData.quotationDate} inpWidth="w-70" />
-        </div>
+            {/* Client Name */}
+            <div className="flex items-center justify-between w-[70%] ">
+              <span className="w-[30%] text-lg font-medium">Client Name:</span>
+              <Input
+                inpName="cliName"
+                readOnly={!isEditing}
+                onChange={handleChange}
+                inpValue={editData.cliName}
+                inpWidth="w-[70%] mr-4"
+              />
+            </div>
 
-      </div>
+            {/* Date */}
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-lg font-medium">Date:</span>
+              <Input
+                readOnly={!isEditing}
+                onChange={handleChange}
+                inpValue={editData.quotationDate}
+                inpWidth="w-48 text-center"
+              />
+            </div>
+          </div>
 
-      {/* Table */}
-      <div className="border rounded-lg overflow-hidden mb-6">
-        <table className="w-full text-sm text-left">
+          {/* Middle Section */}
+          <div className="grid grid-cols-3 gap-6">
 
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="border p-2 w-[5%]">No.</th>
-              <th className="border p-2 w-[50%]">Name of Material</th>
-              <th className="border p-2 w-[10%]">Gej</th>
-              <th className="border p-2 w-[10%]">Price</th>
-              <th className="border p-2 w-[15%]">Quantity</th>
-            </tr>
-          </thead>
+            {/* LEFT → TABLE */}
+            <div className="col-span-2 overflow-hidden">
+              <table className="w-full text-md text-left h-full">
 
-          <tbody>
-            {
-              editData.materials ?
-                (
-                  editData.materials.map((row, i) => (
-                    <tr key={i}>
-                      <td className="border p-2">{i + 1}</td>
-                      {renderCell("nameOfMaterial", i)}
-                      {renderCell("gej", i)}
-                      {renderCell("pic", i)}
-                      {renderCell("qty", i)}
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="border p-2 w-[5%]">No.</th>
+                    <th className="border p-2 w-[50%]">Name of Material</th>
+                    <th className="border p-2 w-[10%]">Gej</th>
+                    <th className="border p-2 w-[10%]">Price</th>
+                    <th className="border p-2 w-[15%]">Quantity</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {editData.materials ? (
+                    editData.materials.map((row, i) => (
+                      <tr key={i}>
+                        <td className="border p-2">{i + 1}</td>
+                        {renderCell("nameOfMaterial", i)}
+                        {renderCell("gej", i)}
+                        {renderCell("pic", i)}
+                        {renderCell("qty", i)}
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="5" className="p-3 text-center">
+                        No materials
+                      </td>
                     </tr>
-                  ))
-                ) : (
-                  <h2 className="p-3 text-2xl">No materials</h2>
-                )
-            }
-          </tbody>
+                  )}
+                </tbody>
 
-        </table>
+              </table>
+            </div>
+
+            {/* RIGHT → FORM */}
+            <div className="flex flex-col gap-1">
+
+              <div className="flex justify-between items-center">
+                <span>Mobile:</span>
+                <Input
+                  inpName="mobile"
+                  readOnly={!isEditing}
+                  onChange={handleChange}
+                  inpValue={editData.mobile}
+                  inpWidth="w-40 text-center"
+                />
+              </div>
+
+              <div className="flex justify-between items-center">
+                <span>Rate B:</span>
+                <Input
+                  inpName="rateB"
+                  readOnly={!isEditing}
+                  onChange={handleChange}
+                  inpValue={editData.rateB}
+                  inpWidth="w-40 text-center"
+                />
+              </div>
+
+              <div className="flex justify-between items-center">
+                <span>Bending:</span>
+                <Input
+                  inpName="bending"
+                  readOnly={!isEditing}
+                  onChange={handleChange}
+                  inpValue={editData.bending}
+                  inpWidth="w-40 text-center"
+                />
+              </div>
+
+              <div className="flex justify-between items-center">
+                <span>Add:</span>
+                <Input
+                  inpName="add"
+                  readOnly={!isEditing}
+                  onChange={handleChange}
+                  inpValue={editData.add}
+                  inpWidth="w-40 text-center"
+                />
+              </div>
+
+              <div className="flex justify-between items-center mt-2">
+                <span className="font-medium">Quotation Amount:</span>
+                <Input
+                  readOnly
+                  inpValue={editData.amount}
+                  inpWidth="w-[45%] text-center font-bold"
+                />
+              </div>
+
+            </div>
+          </div>
+
       </div>
-
-      {/* Bottom Section */}
-      <div className="flex flex-col md:flex-row justify-between gap-6">
-
-        {/* Left */}
-        <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-3">
-            <span>Mobile No.:</span>
-            <Input inpName={"mobile"} readOnly={!isEditing} onChange={handleChange} inpValue={editData.mobile} inpWidth="w-40" />
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span>Rate B:</span>
-            <Input inpName={"rateB"} readOnly={!isEditing} onChange={handleChange} inpValue={editData.rateB} inpWidth="w-40" />
-          </div>
-        </div>
-
-        {/* Right */}
-        <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-3">
-            <span>Bending:</span>
-            <Input inpName={"bending"} readOnly={!isEditing} onChange={handleChange} inpValue={editData.bending} inpWidth="w-40" />
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span>Add:</span>
-            <Input inpName={"add"} readOnly={!isEditing} onChange={handleChange} inpValue={editData.add} inpWidth="w-40" />
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span>Quotation Amount:</span>
-            <Input inpName={total} readOnly  inpValue={editData.amount} inpWidth="w-40" />
-          </div>
-        </div>
-
-      </div>
-
-    </div>
+    </>
   );
 };
 

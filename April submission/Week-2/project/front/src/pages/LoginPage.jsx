@@ -66,7 +66,7 @@ const LoginDataPage = () => {
 
           </div>
 
-          <Button btnName={"Login"} btnColor={"blue"} btnWidth={"w-full"} btnType='submit'/>
+          <Button btnName={"Login"} btnColor={"blue"} btnWidth={"w-full mt-6"} btnType='submit'/>
 
         </form>
       </div>

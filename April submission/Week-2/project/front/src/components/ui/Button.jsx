@@ -4,7 +4,8 @@ const colors = {
   red: "bg-red-600 hover:bg-red-700",
   green: "bg-green-600 hover:bg-green-700",
   yellow: "bg-yellow-300 hover:bg-yellow-400",
-  white: "bg-white hover:bg-gray-100 border",
+  white: "bg-white hover:bg-gray-100 border-2",
+  gray: "bg-gray-100 hover:bg-gray-200 border-2",
 };
 
 const textColors = {
@@ -17,7 +18,7 @@ const Button = ({ btnName, btnWidth, onClick, btnColor = "blue", btnType = "butt
     <button
       type = {btnType}
       onClick={onClick}
-      className={`${btnWidth} py-2 p-4 mt-6 ${textColors[txtCol]} ${colors[btnColor]} rounded-lg`}
+      className={`${btnWidth} py-2 p-4 ${textColors[txtCol]} ${colors[btnColor]} rounded-lg`}
       >
         {btnName}
     </button>

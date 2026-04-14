@@ -2,7 +2,7 @@ import Sidebar from "../components/layout/Sidebar";
 import Header from "../components/layout/Header";
 import { Outlet } from "react-router-dom";
 
-const DashboardLayout = () => {
+const Layout = () => {
   return (
     <div className="flex h-screen">
 
@@ -14,7 +14,7 @@ const DashboardLayout = () => {
         <Header />
 
         {/* Content Area */}
-        <div className="p-6 bg-gray-200 flex-1 overflow-y-auto">
+        <div className="p-6 bg-gray-100 flex-1 overflow-y-auto">
           <Outlet />
         </div>
       </div>
@@ -22,4 +22,4 @@ const DashboardLayout = () => {
   );
 };
 
-export default DashboardLayout;
+export default Layout;

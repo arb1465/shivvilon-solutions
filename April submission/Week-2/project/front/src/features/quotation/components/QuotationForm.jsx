@@ -79,15 +79,20 @@ const QuotationForm = () => {
     setShowPopup(true);
   };
 
+  
+
   return (
     <div className="bg-white border rounded-xl p-4 m-0 w-full max-w-7xl mx-auto">
 
       <form onSubmit={handleSubmit}>
         
         {/* Buttons */}
-        <div className="flex justify-between mt-[-20px] items-center mb-4">
-          <Button btnName="Cancel" btnColor="white" txtCol="black" btnWidth="w-auto px-6" onClick={() => { navi("/quotations") }} />
-          <Button btnName="Send Quotation ->" btnType="submit" btnColor="blue" btnWidth="w-auto px-6" />
+        <div className="flex justify-between mt-3 items-center mb-4">
+          <Button btnName="BACK" btnColor="gray" txtCol="black" btnWidth="w-auto px-6" onClick={() => { navi("/quotations") }} />
+          <div className="flex gap-3">
+            <Button btnName="Send Quotation ->" btnType="submit" btnColor="blue" btnWidth="w-auto px-6" />
+            <Button btnName="Show WhatsApp" btnType="submit" btnColor="green" btnWidth="w-auto px-6" />
+          </div>
         </div>
 
         {/* Top Row */}
@@ -102,6 +107,7 @@ const QuotationForm = () => {
               inpWidth="w-[82%]"
               onChange={handleChange}
               inpValue={formData.cliName}
+              isReq={true}
             />
           </div>
 

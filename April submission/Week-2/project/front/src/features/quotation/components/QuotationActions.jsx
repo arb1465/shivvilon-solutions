@@ -5,7 +5,7 @@ const QuotationActions = ({setFilter}) => {
   const navigate = useNavigate()
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 mt-4">
+    <div className="flex flex-wrap items-center justify-between gap-4 mt-2 rounded-lg border-2 bg-white p-3 py-4">
 
       {/* Left Buttons */}
       <div className="flex gap-3">
