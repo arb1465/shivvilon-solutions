@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { Box, Stack } from "@mui/material";
-import ProductCard from "./ProductCard";
-import { MaterialContext } from "../../contexts/material/materialContext";
+import InventoryCard from "./InventoryCard";
+import { InventoryContext } from "../../contexts/inventory/inventoryContext";
 import QuotationStats from "../quotation/components/QuotationStats";
 
 const DashboardArea = () => {
 
-  const { materials } = useContext(MaterialContext)
+  const { inventories } = useContext(InventoryContext)
 
   return (
     <Box>
@@ -15,16 +15,17 @@ const DashboardArea = () => {
         direction={{ xs: 'column', sm: 'row' }}
         spacing={{ xs: 1, sm: 2, md: 3 }}
       >
-        {materials.map((item) => (
-          <ProductCard
+        {inventories.map((item) => (
+          <InventoryCard
             key={item.id}
-            productName={item.name}
+            productName={item.inventoryName}
             property={item.properties}
             quantity={item.quantity}
             productId={item.id}
           />
         ))}
       </Stack>
+      
       <Box sx={{ marginTop: "30px" }}>    
         <QuotationStats/>
       </Box>

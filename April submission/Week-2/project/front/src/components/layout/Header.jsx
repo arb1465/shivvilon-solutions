@@ -8,9 +8,9 @@ const getTitle = (path) => {
   if (path.startsWith("/quotations/")) return "Quotation Detail";
   if (path.startsWith("/quotations")) return "Quotation";
 
-  if (path.startsWith("/materials/new-material")) return "New Material";
-  if (path.startsWith("/materials/")) return "Material Detail";
-  if (path.startsWith("/materials")) return "Materials";
+  if (path.startsWith("/inventories/new-inventory")) return "New Inventory";
+  if (path.startsWith("/inventories/")) return "Inventory Detail";
+  if (path.startsWith("/inventories")) return "Inventory";
 
   if (path.startsWith("/payment")) return "Payment";
   if (path.startsWith("/dashboard")) return "Dashboard";

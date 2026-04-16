@@ -2,12 +2,11 @@ import React from "react";
 import {
   Card,
   CardContent,
-  CardActions,
   Typography,
   Box,
 } from "@mui/material";
 
-const ProductCard = ({ productName, property, quantity }) => {
+const InventoryCard = ({ productName, property, quantity }) => {
   return (
     <Card
       elevation={3}
@@ -47,7 +46,7 @@ const ProductCard = ({ productName, property, quantity }) => {
           }}
         >
           <Typography variant="body1">
-            {quantity}
+            Quantity: {quantity}
           </Typography>
         </Box>
 
@@ -57,4 +56,4 @@ const ProductCard = ({ productName, property, quantity }) => {
   );
 };
 
-export default ProductCard;
+export default InventoryCard;

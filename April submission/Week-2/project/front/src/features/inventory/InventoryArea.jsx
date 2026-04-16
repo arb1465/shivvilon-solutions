@@ -11,11 +11,12 @@ import {
   TableContainer,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { MaterialContext } from "../../contexts/material/materialContext";
+import { InventoryContext } from "../../contexts/inventory/inventoryContext";
 import Button from "../../components/ui/Button";
 
-const MaterialArea = () => {
-  const { materials } = useContext(MaterialContext);
+const InventoryArea = () => {
+  const { inventories } = useContext(InventoryContext);
+  // console.log(inventories)
   const navi = useNavigate();
 
   return (
@@ -38,12 +39,13 @@ const MaterialArea = () => {
 
       {/* Header */}
       <Typography variant="h4" fontWeight="bold">
-        Materials
+        Inventories
       </Typography>
       
         <Button 
-          btnName={"+ New Material"}
-          onClick={() => navi("/materials/new-material")}
+          btnName={"+ New inventory"}
+          btnColor="secondary.main"
+          onClick={() => navi("/inventories/new-inventory")}
         />
           
       </Box>
@@ -69,14 +71,14 @@ const MaterialArea = () => {
           </TableHead>
 
           <TableBody>
-            {materials.map((item) => (
+            {inventories.map((item, i) => (
               <TableRow
                 key={item.id}
                 hover
               >
-                <TableCell>{item.id}</TableCell>
+                <TableCell>{i+1}</TableCell>
 
-                <TableCell>{item.name}</TableCell>
+                <TableCell>{item.inventoryName}</TableCell>
 
                 <TableCell>{item.properties.thickness} mm</TableCell>
 
@@ -92,7 +94,7 @@ const MaterialArea = () => {
                         textDecoration: "underline",
                       },
                     }}
-                    onClick={() => navi(`/materials/${item.id}`)}
+                    onClick={() => navi(`/inventories/${item.id}`)}
                   >
                     View Detail →
                   </Typography>
@@ -106,4 +108,4 @@ const MaterialArea = () => {
   );
 };
 
-export default MaterialArea;
+export default InventoryArea;

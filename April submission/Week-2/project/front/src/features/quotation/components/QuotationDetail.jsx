@@ -19,7 +19,7 @@ import Button from "../../../components/ui/Button";
 import Input from "../../../components/ui/Input";
 import getCurrentDateTime from "../../../utils/getCurrentDateAndTime";
 import calculateAmount from "../../../utils/calculateQuotationAmount";
-import { handleDownloadPDF } from "../../../utils/handleDownloadPDF";
+// import { handleDownloadPDF } from "../../../utils/handleDownloadPDF";
 
 const QuotationDetail = () => {
   const { quotations, setQuotations } = useContext(QuotationContext);
@@ -136,12 +136,20 @@ const QuotationDetail = () => {
             ) : (
               <Button btnName="Save" btnColor="green" onClick={handleSave} />
             )}
-
+            {/* 
             <Button
               btnName="Print"
               btnColor="red"
               onClick={() =>
                 handleDownloadPDF({ pdfRef, data: editData })
+              }
+            /> */}
+
+            <Button
+              btnName="Print"
+              btnColor="red"
+              onClick={() =>
+                window.print()
               }
             />
           </Stack>
@@ -181,50 +189,56 @@ const QuotationDetail = () => {
 
             {/* TABLE (MATCHED STYLE) */}
             <Grid item xs={12} md={8}>
-              <TableContainer >
-                <Table
-                  sx={{
-                    width: "90%",
-                    "& th, & td": {
-                      padding: "3px",
-                    },
-                  }}
+              <Box sx={{ height: "100%" }}>
+                <TableContainer
+                  sx={{ height: "100%" }}
                 >
-                  <TableHead>
-                    <TableRow>
-                      <TableCell sx={{ width: "5%" }}>No.</TableCell>
-                      <TableCell sx={{ width: "40%" }}>Name</TableCell>
-                      <TableCell sx={{ width: "15%" }}>Gej</TableCell>
-                      <TableCell sx={{ width: "15%" }}>Price</TableCell>
-                      <TableCell sx={{ width: "15%" }}>Qty</TableCell>
-                    </TableRow>
-                  </TableHead>
-
-                  <TableBody>
-                    {editData.materials.map((_, i) => (
-                      <TableRow key={i}>
-
-                        {/* Index */}
-                        <TableCell sx={{ p: "3px" }}>{i + 1}</TableCell>
-
-                        {/* Reusable Cells */}
-                        {renderCell("nameOfMaterial", i)}
-                        {renderCell("gej", i)}
-                        {renderCell("pic", i)}
-                        {renderCell("qty", i)}
-
+                  <Table
+                    sx={{
+                      width: "90%",
+                      height: "70%",
+                      "& th, & td": {
+                        padding: "3px",
+                      },
+                    }}
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <TableCell sx={{ width: "5%" }}>No.</TableCell>
+                        <TableCell sx={{ width: "40%" }}>Name</TableCell>
+                        <TableCell sx={{ width: "15%" }}>Gej</TableCell>
+                        <TableCell sx={{ width: "15%" }}>Price</TableCell>
+                        <TableCell sx={{ width: "15%" }}>Qty</TableCell>
                       </TableRow>
-                    ))}
-                  </TableBody>
+                    </TableHead>
 
-                </Table>
-              </TableContainer>
+                    <TableBody>
+                      {editData.materials.map((_, i) => (
+                        <TableRow key={i}>
+
+                          {/* Index */}
+                          <TableCell sx={{ p: "3px" }}>{i + 1}</TableCell>
+
+                          {/* Reusable Cells */}
+                          {renderCell("nameOfMaterial", i)}
+                          {renderCell("gej", i)}
+                          {renderCell("pic", i)}
+                          {renderCell("qty", i)}
+
+                        </TableRow>
+                      ))}
+                    </TableBody>
+
+                  </Table>
+                </TableContainer>
+              </Box>
+
             </Grid>
 
             {/* RIGHT SECTION (MATCHED) */}
-            <Stack spacing={1}>
+            <Stack spacing={1} sx={{ width: "25%", display: "flex", flexDirection: "column", gap: "15px" }}>
 
-              <Box display="flex" justifyContent="space-between">
+              <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
                 <Typography>Mobile No.:</Typography>
                 <Input
                   inpName="mobile"
@@ -234,7 +248,7 @@ const QuotationDetail = () => {
                 />
               </Box>
 
-              <Box display="flex" justifyContent="space-between">
+              <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
                 <Typography>Rate B:</Typography>
                 <Input
                   inpName="rateB"
@@ -244,7 +258,7 @@ const QuotationDetail = () => {
                 />
               </Box>
 
-              <Box display="flex" justifyContent="space-between">
+              <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
                 <Typography>Bending:</Typography>
                 <Input
                   inpName="bending"
@@ -254,7 +268,7 @@ const QuotationDetail = () => {
                 />
               </Box>
 
-              <Box display="flex" justifyContent="space-between">
+              <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
                 <Typography>Add:</Typography>
                 <Input
                   inpName="add"
@@ -264,7 +278,7 @@ const QuotationDetail = () => {
                 />
               </Box>
 
-              <Box display="flex" justifyContent="space-between">
+              <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
                 <Typography>Quotation Amount:</Typography>
                 <Input readOnly inpValue={total} />
               </Box>
@@ -272,11 +286,6 @@ const QuotationDetail = () => {
             </Stack>
 
           </Grid>
-
-          {/* FOOTER (MATCHED) */}
-          <Typography mt={3} textAlign="center" color="text.secondary">
-            ----- Warning msg or Instructions -----
-          </Typography>
 
         </Box>
 

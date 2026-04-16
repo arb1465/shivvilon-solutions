@@ -3,16 +3,16 @@ import LoginPage from "./pages/LoginPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import DashboardArea from "./features/dashboard/DashboardArea";
-import MaterialArea from "./features/material/MaterialArea";
+import InventoryArea from "./features/inventory/InventoryArea";
 import QuotationArea from "./features/quotation/QuotationArea";
 import PaymentArea from "./features/payment/PaymentArea";
 import QuotationForm from "./features/quotation/components/QuotationForm";
 import QuotationDetail from "./features/quotation/components/QuotationDetail";
-import MaterialDetail from "./features/material/components/MaterialDetail"
-import MaterialForm from "./features/material/components/MaterialForm";
+import InventoryDetail from "./features/inventory/components/InventoryDetail"
+import InventoryForm from "./features/inventory/components/InventoryForm";
 
 import QuotationProvider from "./contexts/quotation/QuotationProvider";
-import MaterialProvider from "./contexts/material/MaterialProvider";
+import InventoryProvider from "./contexts/inventory/InventoryProvider";
 
 function App() {
   return (
@@ -28,38 +28,38 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <MaterialProvider>
+              <InventoryProvider>
                 <QuotationProvider>
                   <DashboardArea />
                 </QuotationProvider>
-              </MaterialProvider>
+              </InventoryProvider>
             }
           />
 
           <Route
-            path="/materials"
+            path="/inventories"
             element={
-              <MaterialProvider>
-                <MaterialArea />
-              </MaterialProvider>
+              <InventoryProvider>
+                <InventoryArea />
+              </InventoryProvider>
             }
           />
 
           <Route
-            path="/materials/new-material"
+            path="/inventories/new-inventory"
             element={
-              <MaterialProvider>
-                <MaterialForm />
-              </MaterialProvider>
+              <InventoryProvider>
+                <InventoryForm />
+              </InventoryProvider>
             }
           />
 
           <Route
-            path="/materials/:id"
+            path="/inventories/:id"
             element={
-              <MaterialProvider>
-                <MaterialDetail />
-              </MaterialProvider>
+              <InventoryProvider>
+                <InventoryDetail />
+              </InventoryProvider>
             }
           />
 

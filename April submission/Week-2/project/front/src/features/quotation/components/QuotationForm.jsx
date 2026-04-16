@@ -9,6 +9,7 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  Divider,
 } from "@mui/material";
 
 import Input from "../../../components/ui/Input";
@@ -222,32 +223,42 @@ const QuotationForm = () => {
                 })}
               </TableBody>
             </Table>
+
+            {/* Footer */}
+            <Box sx={{textAlign: "center"}}>
+              <Typography sx={{ marginTop: "25px" }} textAlign="center" variant="h5" color="text.secondary">
+                માપ ચેક કરી ને રજા લેવી
+                <br />
+                <br />
+                કટિંગ કરેલ માલ પાછો રાખવા માં નહિ આવે
+              </Typography>
+            </Box>
           </Grid>
 
           {/* Right Section */}
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} sx={{ marginLeft: "30px" , width: "28%", display: "flex", flexDirection: "column", gap: "15px"}}>
 
-            <Box display="flex" sx={{gap: "40px"}} justifyContent="space-between">
+            <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
               <Typography>Mobile No.:</Typography>
               <Input inpName="mobile" isReq={true} inpValue={formData.mobile} onChange={handleChange} />
             </Box>
 
-            <Box display="flex" sx={{gap: "40px"}} justifyContent="space-between">
+            <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
               <Typography>Rate B:</Typography>
               <Input inpName="rateB" inpValue={formData.rateB} onChange={handleChange} />
             </Box>
 
-            <Box display="flex" sx={{gap: "40px"}} justifyContent="space-between">
+            <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
               <Typography>Bending:</Typography>
               <Input inpName="bending" inpValue={formData.bending} onChange={handleChange} />
             </Box>
 
-            <Box display="flex" sx={{gap: "40px"}} justifyContent="space-between">
+            <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
               <Typography>Add:</Typography>
               <Input inpName="add" inpValue={formData.add} onChange={handleChange} />
             </Box>
 
-            <Box display="flex" sx={{gap: "40px"}} justifyContent="space-between">
+            <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
               <Typography>Quotation Amount:</Typography>
               <Input inpValue={total} readOnly />
             </Box>
@@ -256,16 +267,11 @@ const QuotationForm = () => {
 
         </Grid>
 
-        {/* Footer */}
-        <Typography mt={3} textAlign="center" color="text.secondary">
-          ----- Warning msg or Instructions -----
-        </Typography>
-
         {/* Popup */}
         <Popup
           isOpen={showPopup}
           title="Confirm Action"
-          message="Quotation sent"
+          message="Are you sure to send the Quotation?"
           onConfirm={() => {
             navi("/quotations");
             setShowPopup(false);

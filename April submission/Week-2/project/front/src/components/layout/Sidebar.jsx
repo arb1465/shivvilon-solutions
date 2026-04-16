@@ -24,7 +24,7 @@ const collapsedWidth = 70;
 const navItems = [
   { label: "Dashboard", path: "/dashboard", icon: <DashboardIcon /> },
   { label: "Quotation", path: "/quotations", icon: <ReceiptLongIcon /> },
-  { label: "Materials", path: "/materials", icon: <InventoryIcon /> },
+  { label: "Inventory", path: "/inventories", icon: <InventoryIcon /> },
   { label: "Payment", path: "/payment", icon: <PaymentsIcon /> },
 ];
 
