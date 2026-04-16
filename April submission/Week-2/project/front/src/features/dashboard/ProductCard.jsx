@@ -1,32 +1,60 @@
-import React from 'react'
+import React from "react";
+import {
+  Card,
+  CardContent,
+  CardActions,
+  Typography,
+  Box,
+} from "@mui/material";
 
-const ProductCard = ({productName, property, quantity}) => {
-  // console.log(productName, property, quantity)
+const ProductCard = ({ productName, property, quantity }) => {
   return (
-    <div className="bg-white border rounded-xl p-4 flex flex-col items-center gap-3 shadow-sm hover:shadow-md transition">
+    <Card
+      elevation={3}
+      sx={{
+        width: "100%",
+        borderRadius: 3,
+        textAlign: "center",
+        transition: "0.3s",
+        "&:hover": {
+          boxShadow: 6,
+        },
+      }}
+    >
+      
+      <CardContent>
+        
+        {/* Product Name */}
+        <Typography variant="h5" fontWeight="bold">
+          {productName}
+        </Typography>
 
-      {/* Product Name */}
-      <h2 className="text-lg font-semibold text-center">
-        {productName}
-      </h2>
+        {/* Property */}
+        <Typography variant="body2" color="text.secondary" mt={1}>
+          {property["thickness"]} mm
+        </Typography>
 
-      {/* Property */}
-      <p className="text-gray-500 text-sm">
-        {property["thickness"]} mm
-      </p>
+        {/* Quantity */}
+        <Box
+          sx={{
+            mt: 2,
+            px: 2,
+            py: 1,
+            border: "1px solid",
+            borderColor: "grey.300",
+            borderRadius: 2,
+            display: "inline-block",
+          }}
+        >
+          <Typography variant="body1">
+            {quantity}
+          </Typography>
+        </Box>
 
-      {/* Quantity Box */}
-      <div className="border px-4 py-1 rounded-lg text-gray-700">
-        {quantity}
-      </div>
+      </CardContent>
 
-      {/* Action Button */}
-      <button className="w-full bg-blue-700 text-white py-2 rounded-lg hover:bg-blue-800 transition">
-        View Material
-      </button>
+    </Card>
+  );
+};
 
-    </div>
-  )
-}
-
-export default ProductCard
+export default ProductCard;

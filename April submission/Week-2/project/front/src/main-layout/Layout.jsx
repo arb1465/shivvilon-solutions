@@ -1,24 +1,54 @@
+import React, { useState } from "react";
+import { Box } from "@mui/material";
 import Sidebar from "../components/layout/Sidebar";
 import Header from "../components/layout/Header";
 import { Outlet } from "react-router-dom";
 
+const collapsedWidth = 70;
+
 const Layout = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   return (
-    <div className="flex h-screen">
-
+    <Box sx={{ display: "flex", height: "100vh" }}>
+      
       {/* Sidebar */}
-      <Sidebar />
+      <Sidebar
+        mobileOpen={mobileOpen}
+        onClose={handleDrawerToggle}
+      />
 
-      <div className="flex-1 flex flex-col">
-
-        <Header />
+      {/* Main Content */}
+      <Box
+        sx={{
+          flexGrow: 1,
+          display: "flex",
+          flexDirection: "column",
+          ml: { md: `${collapsedWidth}px` },
+        }}
+      >
+        
+        {/* Header */}
+        <Header onMenuClick={handleDrawerToggle} />
 
         {/* Content Area */}
-        <div className="p-6 bg-gray-100 flex-1 overflow-y-auto">
+        <Box
+          sx={{
+            p: 2,
+            bgcolor: "white",
+            flexGrow: 1,
+            overflowY: "auto",
+          }}
+        >
           <Outlet />
-        </div>
-      </div>
-    </div>
+        </Box>
+
+      </Box>
+    </Box>
   );
 };
 
